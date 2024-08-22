@@ -7,4 +7,8 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 400;
         font-style: normal;
     }
+
+    h1, p {
+        margin: 0;
+    }
 `;
