@@ -1,7 +1,7 @@
 import isEmptyObj from "@/utils/isEmptyObj";
-import styled, { css } from "styled-components"
+import styled, { css } from "styled-components";
 
-const Button = styled.button`
+export const buttonStyle = css`
     border: 0;
     color: #fff;
     padding: 5px 15px;
@@ -9,6 +9,15 @@ const Button = styled.button`
     cursor: pointer;
     font-size: 1.2rem;
     padding: 10px 20px;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+
+    svg {
+        height: 16px;
+        margin-right: 5px;
+    }
 
     ${({ theme }) => {
         if (isEmptyObj(theme)) {
@@ -20,29 +29,37 @@ const Button = styled.button`
                     background-color: #e5e2ff;
                 }
             `;
+        } else if (theme === "primary") {
+            return css`
+                background-color: #5542f6;
+                font-size: 1.2rem;
+                padding: 10px 20px;
+
+                &:hover {
+                    background-color: #4637c6;
+                }
+            `
         }
     }}
 
     ${props => props?.size === "lg" && css`
         font-size: 1.2rem;
         padding: 10px 20px;
-    `}
 
-    ${props => props?.theme === "primary" && css`
-        background-color: #5542f6;
-        font-size: 1.2rem;
-        padding: 10px 20px;
-
-        &:hover {
-            background-color: #4637c6;
+        svg {
+            height: 20px;
         }
     `}
 `;
 
-export default function PrimaryButton({ children, ...rest }) {
+const StyledButton = styled.button`
+    ${buttonStyle}
+`;
+
+export default function Button({ children, ...rest }) {
     return (
-        <Button {...rest}>
+        <StyledButton {...rest}>
             {children}
-        </Button>
+        </StyledButton>
     )
 }
