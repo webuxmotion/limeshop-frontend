@@ -72,7 +72,7 @@ export default function Featured({ product }) {
                     </div>
                     <div>
                         <img
-                            src="https://honestising.org/images-honest-ad/descriptive-1.jpg"
+                            src={product?.images.length > 0 ? product?.images[0] : ""}
                         />
                     </div>
                 </Wrapper>
