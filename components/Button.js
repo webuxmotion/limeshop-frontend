@@ -1,3 +1,4 @@
+import colors from "@/lib/colors";
 import isEmptyObj from "@/utils/isEmptyObj";
 import styled, { css } from "styled-components";
 
@@ -31,12 +32,22 @@ export const buttonStyle = css`
             `;
         } else if (theme === "primary") {
             return css`
-                background-color: #5542f6;
-                font-size: 1.2rem;
-                padding: 10px 20px;
+                background-color: ${colors.primary};
 
                 &:hover {
                     background-color: #4637c6;
+                }
+            `
+        } else if (theme === "secondary") {
+            return css`
+                background-color: transparent;
+                color: ${colors.primary};
+                border-color: ${colors.primary};
+                border: 2px solid;
+
+                &:hover {
+                    color: white;
+                    background-color: ${colors.primary};
                 }
             `
         }
