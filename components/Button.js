@@ -14,6 +14,7 @@ export const buttonStyle = css`
     display: inline-flex;
     align-items: center;
     text-decoration: none;
+    justify-content: center;
 
     svg {
         height: 16px;
@@ -50,6 +51,14 @@ export const buttonStyle = css`
                     background-color: ${colors.primary};
                 }
             `
+        }
+    }}
+
+    ${({ fullwidth }) => {
+        if (fullwidth) {
+            return css`
+                width: 100%;
+            `;
         }
     }}
 
